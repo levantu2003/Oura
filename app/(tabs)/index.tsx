@@ -1,12 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Colors from "@/constants/Colors";
+import { Stack } from "expo-router";
+import Header from "@/components/Header";
 
 const Page = () => {
   return (
-    <View style={styles.container}>
-      <Text>Page</Text>
-    </View>
+    <>
+      <Stack.Screen
+        options={{
+          header: () => <Header />,
+        }}
+      />
+      <View style={styles.container}>
+        <Text>Page</Text>
+      </View>
+    </>
   );
 };
 
