@@ -1,37 +1,84 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+import React from "react";
+import { Tabs } from "expo-router";
+import { AntDesign, FontAwesome, SimpleLineIcons } from "@expo/vector-icons";
+import { View } from "react-native";
+import Colors from "@/constants/Colors";
+const Layout = () => {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+        tabBarStyle: {
+          backgroundColor: Colors.grey,
+          position: "absolute",
+          bottom: 40,
+          justifyContent: "center",
+          alignSelf: "center",
+          height: 63,
+          marginHorizontal: 120,
+          paddingHorizontal: 10,
+          paddingVertical: 8,
+          paddingBottom: 8,
+          borderRadius: 40,
+          borderWidth: 1,
+          borderTopWidth: 1,
+          borderColor: "#333",
+          borderTopColor: "#333",
+        },
+        tabBarShowLabel: false,
+        tabBarInactiveTintColor: "#999",
+        tabBarActiveTintColor: Colors.white,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View
+              style={{
+                padding: 12,
+                borderRadius: 30,
+                backgroundColor: focused ? Colors.tintColor : Colors.grey,
+              }}
+            >
+              <SimpleLineIcons name="pie-chart" size={18} color={color} />
+            </View>
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="transactions"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <View
+              style={{
+                padding: 12,
+                borderRadius: 30,
+                backgroundColor: focused ? Colors.tintColor : Colors.grey,
+              }}
+            >
+              <AntDesign name="swap" size={18} color={color} />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <View
+              style={{
+                padding: 12,
+                borderRadius: 30,
+                backgroundColor: focused ? Colors.tintColor : Colors.grey,
+              }}
+            >
+              <FontAwesome name="user-o" size={18} color={color} />
+            </View>
           ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default Layout;
