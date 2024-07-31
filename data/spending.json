@@ -3,36 +3,36 @@
     "id": "1",
     "name": "Tiền thuê nhà",
     "amount": "13.402.000",
-    "date": "2024-05-01"
+    "date": "2024-07-01"
   },
   {
     "id": "2",
     "name": "Netflix",
     "amount": "278.000",
-    "date": "2024-05-02"
+    "date": "2024-07-02"
   },
   {
     "id": "3",
     "name": "Spotify",
     "amount": "151.000",
-    "date": "2024-05-02"
+    "date": "2024-07-02"
   },
   {
     "id": "4",
-    "name": "Shopee",
+    "name": "Amazon",
     "amount": "5.934.000",
-    "date": "2024-05-06"
+    "date": "2024-07-06"
   },
   {
     "id": "5",
     "name": "Figma",
     "amount": "228.000",
-    "date": "2024-05-09"
+    "date": "2024-07-09"
   },
   {
     "id": "6",
     "name": "Mua sắm online",
     "amount": "3.464.000",
-    "date": "2024-05-12"
+    "date": "2024-07-12"
   }
 ]
