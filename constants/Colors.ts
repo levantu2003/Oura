@@ -4,4 +4,5 @@ export default {
   white: "#FCFCFC",
   tintColor: "#723FEB",
   blue: "#97E0F7",
+  pink: "#FFA5BA",
 };

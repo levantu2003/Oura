@@ -1,26 +1,26 @@
 [
- {
-  "id": "1",
-  "name": "Housing",
-  "amount": "955.75",
-  "percentage": "61"
- },
- {
-  "id": "2",
-  "name": "Food",
-  "amount": "300.55",
-  "percentage": "19"
- },
- {
-  "id": "3",
-  "name": "Saving",
-  "amount": "200.95",
-  "percentage": "13"
- },
- {
-  "id": "4",
-  "name": "Miscleneous",
-  "amount": "70.95",
-  "percentage": "5"
- }
+  {
+    "id": "1",
+    "name": "Tiền nhà",
+    "amount": "24.166.138",
+    "percentage": "61"
+  },
+  {
+    "id": "2",
+    "name": "Thức ăn",
+    "amount": "7.599.406",
+    "percentage": "19"
+  },
+  {
+    "id": "3",
+    "name": "Tiết kiệm",
+    "amount": "5.081.020",
+    "percentage": "13"
+  },
+  {
+    "id": "4",
+    "name": "Lặt vặt",
+    "amount": "1.793.970",
+    "percentage": "5"
+  }
 ]

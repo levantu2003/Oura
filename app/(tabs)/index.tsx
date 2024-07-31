@@ -3,8 +3,30 @@ import React from "react";
 import Colors from "@/constants/Colors";
 import { Stack } from "expo-router";
 import Header from "@/components/Header";
+import { PieChart } from "react-native-gifted-charts";
+import ExpenseBlock from "@/components/ExpenseBlock";
+import ExpensList from "@/data/expenses.json";
 
 const Page = () => {
+  const pieData = [
+    {
+      value: 61,
+      color: Colors.tintColor,
+      focused: true,
+      text: "61%",
+    },
+    {
+      value: 19,
+      color: Colors.blue,
+      text: "19%",
+    },
+    {
+      value: 13,
+      color: Colors.white,
+      text: "13%",
+    },
+    { value: 5, color: "#FFA5BA", gradientCenterColor: "#FF7F97", text: "5%" },
+  ];
   return (
     <>
       <Stack.Screen
@@ -14,16 +36,54 @@ const Page = () => {
       />
       <View style={[styles.container, { paddingTop: 70 }]}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <View style={{ gap: 10 }}>
-            <Text style={{ color: Colors.white, fontSize: 16 }}>
-              <Text style={{ fontWeight: 700 }}>Chi tiêu</Text> của tôi
-            </Text>
-            <Text
-              style={{ color: Colors.white, fontSize: 22, fontWeight: 700 }}
-            >
-              24.758.000 VND
-            </Text>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <View style={{ gap: 10 }}>
+              <Text style={{ color: Colors.white, fontSize: 16 }}>
+                <Text style={{ fontWeight: 700 }}>Chi tiêu</Text> của tôi
+              </Text>
+              <Text
+                style={{ color: Colors.white, fontSize: 22, fontWeight: 700 }}
+              >
+                38.640.534 VND
+              </Text>
+            </View>
+            <View style={{ paddingVertical: 20, alignItems: "center" }}>
+              <PieChart
+                data={pieData}
+                donut
+                showGradient
+                sectionAutoFocus
+                semiCircle
+                radius={70}
+                innerRadius={55}
+                innerCircleColor={Colors.black}
+                centerLabelComponent={() => {
+                  return (
+                    <View
+                      style={{ justifyContent: "center", alignItems: "center" }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: 22,
+                          color: "white",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        61%
+                      </Text>
+                    </View>
+                  );
+                }}
+              />
+            </View>
           </View>
+          <ExpenseBlock expensList={ExpensList} />
         </ScrollView>
       </View>
     </>
