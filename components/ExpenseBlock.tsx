@@ -11,7 +11,13 @@ import { ExpenseType } from "@/types";
 import Colors from "@/constants/Colors";
 import { Feather } from "@expo/vector-icons";
 
-const ExpenseBlock = ({ expensList }: { expensList: ExpenseType[] }) => {
+const ExpenseBlock = ({
+  expensList,
+  onSelectExpense,
+}: {
+  expensList: ExpenseType[];
+  onSelectExpense: (expense: ExpenseType) => void;
+}) => {
   const renderItem: ListRenderItem<Partial<ExpenseType>> = ({
     item,
     index,
@@ -26,56 +32,22 @@ const ExpenseBlock = ({ expensList }: { expensList: ExpenseType[] }) => {
       );
     }
     return (
-      <View
-        style={[
-          styles.expenseBlock,
-          {
-            backgroundColor:
-              item.name == "Thức ăn"
-                ? Colors.blue
-                : item.name == "Tiết kiệm"
-                ? Colors.white
-                : item.name == "Lặt vặt"
-                ? Colors.pink
-                : Colors.tintColor,
-          },
-        ]}
-      >
-        <Text
+      <TouchableOpacity onPress={() => onSelectExpense(item as ExpenseType)}>
+        <View
           style={[
-            styles.expenseBlockTxt1,
+            styles.expenseBlock,
             {
-              color:
+              backgroundColor:
                 item.name == "Thức ăn"
-                  ? Colors.black
+                  ? Colors.blue
                   : item.name == "Tiết kiệm"
-                  ? Colors.black
+                  ? Colors.white
                   : item.name == "Lặt vặt"
-                  ? Colors.black
-                  : Colors.white,
+                  ? Colors.pink
+                  : Colors.tintColor,
             },
           ]}
         >
-          {item.name}
-        </Text>
-        <Text
-          style={[
-            styles.expenseBlockTxt2,
-            {
-              color:
-                item.name == "Thức ăn"
-                  ? Colors.black
-                  : item.name == "Tiết kiệm"
-                  ? Colors.black
-                  : item.name == "Lặt vặt"
-                  ? Colors.black
-                  : Colors.white,
-            },
-          ]}
-        >
-          {item.amount} VND
-        </Text>
-        <View style={styles.expenseBlock3View}>
           <Text
             style={[
               styles.expenseBlockTxt1,
@@ -91,10 +63,46 @@ const ExpenseBlock = ({ expensList }: { expensList: ExpenseType[] }) => {
               },
             ]}
           >
-            {item.percentage}%
+            {item.name}
           </Text>
+          <Text
+            style={[
+              styles.expenseBlockTxt2,
+              {
+                color:
+                  item.name == "Thức ăn"
+                    ? Colors.black
+                    : item.name == "Tiết kiệm"
+                    ? Colors.black
+                    : item.name == "Lặt vặt"
+                    ? Colors.black
+                    : Colors.white,
+              },
+            ]}
+          >
+            {item.amount} VND
+          </Text>
+          <View style={styles.expenseBlock3View}>
+            <Text
+              style={[
+                styles.expenseBlockTxt1,
+                {
+                  color:
+                    item.name == "Thức ăn"
+                      ? Colors.black
+                      : item.name == "Tiết kiệm"
+                      ? Colors.black
+                      : item.name == "Lặt vặt"
+                      ? Colors.black
+                      : Colors.white,
+                },
+              ]}
+            >
+              {item.percentage}%
+            </Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
   const staticItem = [{ name: "Thêm mục" }];

@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import Colors from "@/constants/Colors";
 import { Stack } from "expo-router";
 import Header from "@/components/Header";
@@ -12,26 +12,32 @@ import ExpensList from "@/data/expenses.json";
 import incomeList from "@/data/income.json";
 import spendingList from "@/data/spending.json";
 
+interface ExpenseType {
+  id: string;
+  name: string;
+  amount: string;
+  percentage: string;
+}
+
 const Page = () => {
-  const pieData = [
-    {
-      value: 61,
-      color: Colors.tintColor,
-      focused: true,
-      text: "61%",
-    },
-    {
-      value: 19,
-      color: Colors.blue,
-      text: "19%",
-    },
-    {
-      value: 13,
-      color: Colors.white,
-      text: "13%",
-    },
-    { value: 5, color: "#FFA5BA", gradientCenterColor: "#FF7F97", text: "5%" },
-  ];
+  const [selectedExpense, setSelectedExpense] = useState<ExpenseType | null>(
+    null
+  );
+
+  const pieData = (ExpensList as ExpenseType[]).map((expense) => ({
+    value: parseFloat(expense.percentage),
+    color:
+      expense.name === "Thức ăn"
+        ? Colors.blue
+        : expense.name === "Tiết kiệm"
+        ? Colors.white
+        : expense.name === "Lặt vặt"
+        ? Colors.pink
+        : Colors.tintColor,
+    text: `${expense.percentage}%`,
+    focused: expense.name === selectedExpense?.name,
+  }));
+
   return (
     <>
       <Stack.Screen
@@ -64,6 +70,7 @@ const Page = () => {
                 donut
                 showGradient
                 sectionAutoFocus
+                focusOnPress
                 semiCircle
                 radius={70}
                 innerRadius={55}
@@ -80,7 +87,9 @@ const Page = () => {
                           fontWeight: "bold",
                         }}
                       >
-                        61%
+                        {selectedExpense
+                          ? `${selectedExpense.percentage}%`
+                          : "61%"}
                       </Text>
                     </View>
                   );
@@ -88,7 +97,12 @@ const Page = () => {
               />
             </View>
           </View>
-          <ExpenseBlock expensList={ExpensList} />
+          <ExpenseBlock
+            expensList={ExpensList as ExpenseType[]}
+            onSelectExpense={(expense: ExpenseType) =>
+              setSelectedExpense(expense)
+            }
+          />
           <IncomeBlock incomeList={incomeList} />
           <SpendingBlock spendingList={spendingList} />
         </ScrollView>
