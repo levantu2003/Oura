@@ -1,38 +1,38 @@
 [
   {
     "id": "1",
-    "name": "AirBnB Rent",
-    "amount": "529.99",
+    "name": "Tiền thuê nhà",
+    "amount": "13.402.000",
     "date": "2024-05-01"
   },
   {
     "id": "2",
     "name": "Netflix",
-    "amount": "10.99",
+    "amount": "278.000",
     "date": "2024-05-02"
   },
   {
     "id": "3",
     "name": "Spotify",
-    "amount": "5.99",
+    "amount": "151.000",
     "date": "2024-05-02"
   },
   {
     "id": "4",
-    "name": "Amazon",
-    "amount": "234.69",
+    "name": "Shopee",
+    "amount": "5.934.000",
     "date": "2024-05-06"
   },
   {
     "id": "5",
     "name": "Figma",
-    "amount": "8.99",
+    "amount": "228.000",
     "date": "2024-05-09"
   },
   {
     "id": "6",
-    "name": "Online Shopping",
-    "amount": "136.99",
-    "date": "2024-05-012"
+    "name": "Mua sắm online",
+    "amount": "3.464.000",
+    "date": "2024-05-12"
   }
 ]

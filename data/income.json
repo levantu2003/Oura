@@ -1,17 +1,17 @@
 [
   {
     "id": "1",
-    "name": "Salary",
-    "amount": "1,500.00"
+    "name": "Lương chính",
+    "amount": "37.931.000"
   },
   {
     "id": "2",
     "name": "Freelancing",
-    "amount": "850.99"
+    "amount": "21.519.000"
   },
   {
     "id": "3",
-    "name": "Interest",
-    "amount": "200.95"
+    "name": "Sở thích",
+    "amount": "5.081.000"
   }
 ]
